@@ -1,0 +1,281 @@
+/* Basic body and container */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #1d434e;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+/* Headings */
+h1, h2 {
+    color: #1d434e;
+    margin-bottom: 20px;
+}
+
+/* Form elements */
+form {
+    margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button, input[type="submit"] {
+    background-color: #1d434e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #145c70;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #1d434e;
+    color: white;
+}
+
+table td {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Flash messages */
+.flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.flash.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.flash.danger {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Card style for home counts */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin: 0;
+    color: #1d434e;
+}
+
+.card p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    margin: 0 4px;
+    text-decoration: none;
+    background-color: #1d434e;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #145c70;
+}
+
+/* Input group styles for search bars */
+.input-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.input-group input[type="text"] {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+}
+
+.input-group button {
+    padding: 12px;
+    background-color: #1d434e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-group button:hover {
+    background-color: #145c70;
+}
+
+
+.welcome-section {
+    text-align: center;
+    background-image: linear-gradient(to left, #e0f2f7, #1d434e); /* Light Cyan to Deep Teal */
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+.summary {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+    padding: 20px;
+}
+
+.summary-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.summary-card:hover {
+    transform: translateY(-10px);
+}
+
+.quick-links {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.quick-links h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #1d434e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1d434e;
+}
+
+.chart-section {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.overview-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.stats li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.popular-books {
+    margin-top: 30px;
+}
+
+.popular-books li {
+    font-size: 16px;
+    color: #555;
+}

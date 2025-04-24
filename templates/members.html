@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Members</h1>
+
+<h2>Search Members</h2>
+<input type="text" id="memberSearch" placeholder="Search by name or contact">
+
+<h2>Add New Member</h2>
+<form method="post" action="{{ url_for('add_member') }}">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="contact" placeholder="Contact" required>
+    <button type="submit">Add Member</button>
+</form>
+
+<h2>Registered Members</h2>
+<table id="membersTable">
+    <thead>
+        <tr>
+            <th>Name</th><th>Contact</th><th>Debt (KES)</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.name }}</td>
+            <td>{{ member.contact }}</td>
+            <td>{{ "%.2f"|format(member.debt) }}</td>
+            <td>
+                <a href="{{ url_for('edit_member', member_id=member.id) }}">Edit</a> | 
+                <a href="{{ url_for('delete_member', member_id=member.id) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p id="noMemberMessage" style="display: none; color: red;">No members found</p>
+
+<script>
+    document.getElementById('memberSearch').addEventListener('keyup', function () {
+        const searchValue = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#membersTable tbody tr');
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const name = row.children[0].textContent.toLowerCase();
+            const contact = row.children[1].textContent.toLowerCase();
+            const matches = name.includes(searchValue) || contact.includes(searchValue);
+            row.style.display = matches ? '' : 'none';
+            if (matches) visibleCount++;
+        });
+
+        document.getElementById('noMemberMessage').style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- Welcome Section -->
+<div class="welcome-section">
+    <h1>Welcome to the Library System</h1>
+    <p>Manage your library with ease. Here's a quick summary of the current status:</p>
+</div>
+
+<!-- Summary Section -->
+<div class="summary">
+    <div class="summary-card">
+        <h3>Total Books</h3>
+        <p>{{ books|length }}</p>
+    </div>
+    <div class="summary-card">
+        <h3>Total Members</h3>
+        <p>{{ members|length }}</p>
+    </div>
+</div>
+
+<!-- Quick Links Section -->
+<div class="quick-links">
+    <h2>Quick Actions</h2>
+    <a href="{{ url_for('books') }}" class="button">Manage Books</a>
+    <a href="{{ url_for('members') }}" class="button">Manage Members</a>
+</div>
+
+<!-- Optional: Chart or Graph Section (if using charting library like Chart.js) -->
+<div class="chart-section">
+   
+<h2>Library Overview</h2>
+<div class="overview-container">
+   
+
+    <div class="stats">
+        <ul>
+            <li><strong>Total Books:</strong> {{ books|length }}</li>
+            <li><strong>Total Members:</strong> {{ members|length }}</li>
+            <li><strong>Total Transactions:</strong> {{ transactions|length }}</li>
+
+        </ul>
+    </div>
+</div>
+
+<h3>Popular Books</h3>
+<ul>
+    {% for book in popular_books %}
+        <li>{{ book.title }} by {{ book.author }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+</div>
+
+

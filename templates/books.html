@@ -1,0 +1,63 @@
+<!-- templates/books.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Books</h1>
+<h2>Search Books</h2>
+<input type="text" id="bookSearch" placeholder="Search by title or author">
+
+<h2>Available Books</h2>
+<table id="booksTable">
+    <thead>
+        <tr>
+            <th>Title</th><th>Author</th><th>Quantity</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.quantity }}</td>
+            <td>
+                <a href="{{ url_for('edit_book', book_id=book.id) }}">Edit</a> |
+                <a href="{{ url_for('delete_book', book_id=book.id) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Add New Book</h2>
+<form method="post" action="{{ url_for('add_book') }}">
+    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="author" placeholder="Author" required>
+    <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+    <button type="submit">Add Book</button>
+</form>
+
+
+
+
+<p id="noBookMessage" style="display: none; color: red;">Book not available</p>
+
+<script>
+    document.getElementById('bookSearch').addEventListener('keyup', function () {
+        const searchValue = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#booksTable tbody tr');
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const title = row.children[0].textContent.toLowerCase();
+            const author = row.children[1].textContent.toLowerCase();
+            const matches = title.includes(searchValue) || author.includes(searchValue);
+            row.style.display = matches ? '' : 'none';
+            if (matches) visibleCount++;
+        });
+
+        document.getElementById('noBookMessage').style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+</script>
+
+    
+{% endblock %}

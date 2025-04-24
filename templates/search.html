@@ -1,0 +1,31 @@
+<!-- templates/search.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Search Books</h1>
+
+<form method="get">
+    <input type="text" name="query" placeholder="Enter title or author" value="{{ query }}" required>
+    <button type="submit">Search</button>
+</form>
+
+{% if books %}
+    <h2>Results</h2>
+    <table>
+        <tr>
+            <th>Title</th><th>Author</th><th>Quantity</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    {% if query %}
+    <p>No results found for "{{ query }}".</p>
+    {% endif %}
+{% endif %}
+{% endblock %}
