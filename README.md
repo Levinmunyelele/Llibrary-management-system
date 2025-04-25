@@ -1,6 +1,8 @@
 Library Management System
 This is a simple Library Management System built with Flask, SQLAlchemy, and SQLite. It allows users to manage books, members, and transactions (book issue and return). Additionally, it displays the most popular books based on transaction history.
 
+Live Demo: [View the app here](http://lmunyelele.pythonanywhere.com/)
+
 Features
 Book Management: Add, edit, delete, and search books.
 
